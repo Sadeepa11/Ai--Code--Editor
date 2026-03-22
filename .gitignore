@@ -1,9 +1,7 @@
-.env
 config.js
 node_modules/
 dist/
 .DS_Store
-.env.local
 .next/
 out/
 build/
@@ -11,3 +9,4 @@ build/
 *.sqlite
 *.sqlite-journal
 *.log
+config.bat
