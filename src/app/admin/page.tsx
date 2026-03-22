@@ -12,10 +12,12 @@ export default function AdminPanel() {
     try {
       const res = await fetch('/api/admin');
       const data = await res.json();
-      setUsers(data);
+      setUsers(Array.isArray(data) ? data : []);
     } catch (err) {
       console.error(err);
+      setUsers([]);
     } finally {
+
       setLoading(false);
     }
   };
