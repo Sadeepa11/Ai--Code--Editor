@@ -104,6 +104,7 @@ export default function Auth({ onLoginSuccess }: { onLoginSuccess: (user: any) =
                   onChange={(e) => setUsername(e.target.value)}
                   className="w-full bg-white/5 border border-white/10 rounded-xl py-3 pl-12 pr-4 text-white placeholder:text-gray-600 focus:outline-none focus:border-accent/50 focus:bg-white/10 transition-all"
                   required
+                  autoComplete="username"
                 />
               </div>
 
@@ -116,7 +117,9 @@ export default function Auth({ onLoginSuccess }: { onLoginSuccess: (user: any) =
                   onChange={(e) => setPassword(e.target.value)}
                   className="w-full bg-white/5 border border-white/10 rounded-xl py-3 pl-12 pr-4 text-white placeholder:text-gray-600 focus:outline-none focus:border-accent/50 focus:bg-white/10 transition-all"
                   required
+                  autoComplete={isLogin ? "current-password" : "new-password"}
                 />
+
               </div>
             </div>
 
