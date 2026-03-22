@@ -1,0 +1,13 @@
+.env
+config.js
+node_modules/
+dist/
+.DS_Store
+.env.local
+.next/
+out/
+build/
+.vercel
+*.sqlite
+*.sqlite-journal
+*.log

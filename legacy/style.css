@@ -1,0 +1,387 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+    /* DARK THEME (Default) */
+    --bg-main: #0d1117;
+    --bg-sidebar: #161b22;
+    --bg-editor: #0d1117;
+    --bg-chat: #0d1117;
+    --bg-tab-active: #0d1117;
+    --bg-tab-inactive: #161b22;
+    --border-color: #30363d;
+    --text-primary: #c9d1d9;
+    --text-secondary: #8b949e;
+    --accent-color: #2f81f7;
+    --accent-hover: #58a6ff;
+    --sidebar-width: 240px;
+    --chat-width: 320px;
+    --status-bg: #21262d;
+}
+
+[data-theme="light"] {
+    --bg-main: #f8fafc;
+    --bg-sidebar: #f1f5f9;
+    --bg-editor: #ffffff;
+    --bg-chat: #ffffff;
+    --bg-tab-active: #ffffff;
+    --bg-tab-inactive: #f1f5f9;
+    --border-color: #cbd5e1;
+    --text-primary: #1e293b;
+    --text-secondary: #64748b;
+    --accent-color: #3b82f6;
+    --accent-hover: #2563eb;
+    --status-bg: #e2e8f0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    height: 100vh;
+    overflow: hidden;
+}
+
+.ide-wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+/* TOP NAV */
+.top-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+    height: 48px;
+    background-color: var(--bg-sidebar);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.logo {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--accent-color);
+}
+
+.nav-controls {
+    display: flex;
+    gap: 0.5rem;
+}
+
+button {
+    padding: 6px 12px;
+    border-radius: 4px;
+    border: 1px solid var(--border-color);
+    background-color: transparent;
+    color: var(--text-primary);
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+button:hover {
+    background-color: var(--status-bg);
+}
+
+#analyze-btn {
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+}
+
+/* MAIN BODY */
+.ide-body {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+}
+
+/* SIDEBAR */
+.sidebar {
+    width: var(--sidebar-width);
+    background-color: var(--bg-sidebar);
+    border-right: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-header {
+    padding: 0.75rem 1rem;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    letter-spacing: 0.05rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.explorer-actions button {
+    padding: 2px 4px;
+    font-size: 0.7rem;
+    border: none;
+    opacity: 0.6;
+}
+
+.explorer-actions button:hover {
+    opacity: 1;
+    background: var(--border-color);
+}
+
+.file-list {
+    list-style: none;
+    padding-top: 0.5rem;
+}
+
+.file-item {
+    padding: 0.4rem 1.5rem;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.file-item.folder {
+    font-weight: 500;
+}
+
+/* ... existing file-item hover/active styles ... */
+
+/* EDITOR & CONSOLE LAYOUT */
+.editor-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--bg-editor);
+    min-width: 0;
+}
+
+#editor-pane {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+#console-pane {
+    height: 180px;
+    background-color: var(--bg-main);
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+}
+
+.console-header {
+    height: 30px;
+    padding: 0 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--bg-sidebar);
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+#clear-console {
+    background: none;
+    border: none;
+    font-size: 0.65rem;
+    padding: 2px 8px;
+}
+
+#console-output {
+    flex: 1;
+    padding: 0.5rem 1rem;
+    overflow-y: auto;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    color: var(--text-primary);
+    white-space: pre-wrap;
+}
+
+.console-log { margin-bottom: 4px; }
+.console-error { color: #f85149; margin-bottom: 4px; }
+
+.accent-btn {
+    background-color: var(--accent-color);
+    color: white !important;
+    border: none !important;
+}
+
+.accent-btn:hover {
+    background-color: var(--accent-hover);
+}
+
+.tab {
+    padding: 0 1rem;
+    display: flex;
+    align-items: center;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    background-color: var(--bg-tab-inactive);
+    border-right: 1px solid var(--border-color);
+    cursor: pointer;
+}
+
+#empty-state {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    color: var(--text-secondary);
+    text-align: center;
+    padding: 2rem;
+}
+
+.empty-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    opacity: 0.3;
+}
+
+#empty-state h2 {
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+    text-transform: none;
+    letter-spacing: normal;
+}
+
+#empty-state p {
+    max-width: 300px;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+#editor-wrapper {
+    flex: 1;
+    overflow: hidden;
+}
+
+.CodeMirror {
+    height: 100% !important;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+}
+
+/* AI CHAT AREA */
+.ai-chat {
+    width: var(--chat-width);
+    background-color: var(--bg-chat);
+    border-left: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-header {
+    padding: 0.75rem 1rem;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    border-bottom: 1px solid var(--border-color);
+}
+
+#chat-messages {
+    flex: 1;
+    padding: 1rem;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.message {
+    padding: 0.85rem 1rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    max-width: 90%;
+    line-height: 1.5;
+}
+
+.message.ai {
+    background-color: var(--bg-sidebar);
+    color: var(--text-primary);
+    align-self: flex-start;
+    border: 1px solid var(--border-color);
+}
+
+.message.ai p {
+    margin-bottom: 0.75rem;
+}
+
+.message.ai p:last-child {
+    margin-bottom: 0;
+}
+
+.message.ai ul, .message.ai ol {
+    margin-left: 1.25rem;
+    margin-bottom: 0.75rem;
+}
+
+.message.ai code {
+    background-color: var(--status-bg);
+    padding: 2px 4px;
+    border-radius: 4px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+}
+
+.message.ai pre {
+    background-color: var(--bg-main);
+    padding: 0.75rem;
+    border-radius: 6px;
+    margin: 0.5rem 0;
+    overflow-x: auto;
+    border: 1px solid var(--border-color);
+}
+
+.message.user {
+    background-color: var(--accent-color);
+    color: white;
+    align-self: flex-end;
+}
+
+.chat-input-area {
+    padding: 1rem;
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    gap: 0.5rem;
+}
+
+#chat-input {
+    flex: 1;
+    padding: 8px;
+    background-color: var(--bg-sidebar);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    color: var(--text-primary);
+    font-size: 0.8rem;
+}
+
+#chat-input:focus {
+    outline: none;
+    border-color: var(--accent-color);
+}
+
+/* STATUS BAR */
+.status-bar {
+    height: 22px;
+    background-color: var(--status-bg);
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0 1rem;
+    gap: 1.5rem;
+    font-size: 0.7rem;
+    color: var(--text-secondary);
+}

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Antigravity Lite - AI IDE</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- CodeMirror 6 CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/mode/javascript/javascript.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/codemirror.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/theme/dracula.min.css">
+    <!-- Markdown Parser -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body data-theme="dark">
+    <div class="ide-wrapper">
+        <!-- TOP NAVIGATION -->
+        <nav class="top-nav">
+            <div class="logo">🚀 Antigravity Lite</div>
+            <div class="nav-controls">
+                <button id="theme-toggle">🌙 Switch Theme</button>
+                <button id="analyze-btn">✨ Auto-Correct</button>
+                <button id="run-btn" class="accent-btn">▶ Run Code</button>
+            </div>
+        </nav>
+
+        <div class="ide-body">
+            <!-- LEFT SIDEBAR: FILE EXPLORER -->
+            <aside class="sidebar">
+                <div class="sidebar-header">
+                    <span>EXPLORER</span>
+                    <div class="explorer-actions">
+                        <button id="new-file" title="New File">📄+</button>
+                        <button id="new-folder" title="New Folder">📁+</button>
+                    </div>
+                </div>
+                <div id="file-tree" class="file-list">
+                    <!-- Dynamic files will be injected here -->
+                </div>
+            </aside>
+
+            <!-- MAIN EDITOR AREA -->
+            <main class="editor-area">
+                <div id="editor-pane">
+                    <div class="tabs" id="tabs-list">
+                        <!-- Dynamic tabs will be injected here -->
+                    </div>
+                    <div id="editor-wrapper">
+                        <div id="empty-state">
+                            <div class="empty-icon">📂</div>
+                            <h2>No files open</h2>
+                            <p>Create a new file from the sidebar or ask the AI to "Create a project" to get started.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- BOTTOM PANE: OUTPUT CONSOLE -->
+                <div id="console-pane">
+                    <div class="console-header">
+                        <span>OUTPUT</span>
+                        <button id="clear-console">Clear</button>
+                    </div>
+                    <div id="console-output"></div>
+                </div>
+            </main>
+
+            <!-- RIGHT SIDEBAR: AI CHAT -->
+            <aside class="ai-chat">
+                <div class="chat-header">AI ASSISTANT</div>
+                <div id="chat-messages">
+                    <div class="message ai">Hello! I'm your AI assistant. How can I help you with your code today?</div>
+                </div>
+                <div class="chat-input-area">
+                    <input type="text" id="chat-input" placeholder="Ask anything about your code...">
+                    <button id="send-chat">Send</button>
+                </div>
+            </aside>
+        </div>
+
+        <!-- STATUS BAR -->
+        <footer class="status-bar">
+            <span>UTF-8</span>
+            <span>JavaScript</span>
+            <span id="status-line">Ln 1, Col 1</span>
+        </footer>
+    </div>
+    
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+/* Add these to your existing styles.css */
+
+/* Button click animation */
+.btn:active {
+    transform: scale(0.95);
+}
+
+/* History styling */
+.history-item {
+    padding: 8px;
+    margin: 4px 0;
+    background: #f5f5f5;
+    border-radius: 4px;
+    border-left: 3px solid #4CAF50;
+}
+
+.history-expression {
+    font-family: 'Courier New', monospace;
+    color: #333;
+    font-weight: bold;
+}
+
+.history-result {
+    color: #2E7D32;
+    font-weight: bold;
+    margin: 4px 0;
+}
+
+.history-time {
+    font-size: 0.8em;
+    color: #666;
+}
+
+/* Details panel styling */
+.details {
+    background: #e3f2fd;
+    padding: 10px;
+    border-radius: 4px;
+    margin-top: 10px;
+    min-height: 60px;
+}
+
+/* Display animation */
+.display {
+    transition: all 0.2s ease;
+}
+
+.result {
+    transition: all 0.3s ease;
+}
+
+.result.updated {
+    color: #2196F3;
+    transform: scale(1.05);
+}
+
+/* Error state */
+.result.error {
+    color: #f44336;
+    animation: shake 0.5s;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+/* Responsive improvements */
+@media (max-width: 600px) {
+    .calculator {
+        padding: 15px;
+    }
+    
+    .btn {
+        padding: 15px 5px;
+        font-size: 1.2em;
+    }
+    
+    .zero {
+        grid-column: span 2;
+    }
+}

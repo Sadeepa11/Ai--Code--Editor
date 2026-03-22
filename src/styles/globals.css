@@ -1,0 +1,96 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #0d1117;
+  --foreground: #c9d1d9;
+  --bg-sidebar: #161b22;
+  --bg-editor: #0d1117;
+  --bg-tab-active: #0d1117;
+  --border-color: #30363d;
+  --accent-color: #238636;
+  --accent-hover: #2ea043;
+  --status-bg: #010409;
+  --text-primary: #c9d1d9;
+  --text-secondary: #8b949e;
+}
+
+[data-theme='light'] {
+  --background: #ffffff;
+  --foreground: #24292f;
+  --bg-sidebar: #f6f8fa;
+  --bg-editor: #ffffff;
+  --bg-tab-active: #ffffff;
+  --border-color: #d0d7de;
+  --accent-color: #0969da;
+  --accent-hover: #0550ae;
+  --status-bg: #f6f8fa;
+  --text-primary: #24292f;
+  --text-secondary: #57606a;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: 'Inter', sans-serif;
+  overflow: hidden;
+  height: 100vh;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border-color); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-secondary); }
+
+/* SweetAlert customization */
+.swal2-popup {
+  background: var(--bg-sidebar) !important;
+  color: var(--text-primary) !important;
+  border: 1px solid var(--border-color) !important;
+}
+.swal2-title { color: var(--text-primary) !important; }
+.swal2-content { color: var(--text-secondary) !important; }
+
+/* Markdown Chat Styles */
+.markdown-chat {
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.markdown-chat pre {
+  background: rgba(0, 0, 0, 0.3) !important;
+  padding: 12px !important;
+  border-radius: 8px !important;
+  margin: 8px 0 !important;
+  overflow-x: auto !important;
+  border: 1px solid rgba(255, 255, 255, 0.05) !important;
+}
+
+.markdown-chat code {
+  color: #7ee787 !important;
+  font-family: inherit !important;
+  background: rgba(255, 255, 255, 0.05) !important;
+  padding: 2px 4px !important;
+  border-radius: 4px !important;
+}
+
+.markdown-chat pre code {
+  background: transparent !important;
+  padding: 0 !important;
+  color: #e6edf3 !important;
+}
+
+.markdown-chat p {
+  margin-bottom: 8px !important;
+}
+
+.markdown-chat p:last-child {
+  margin-bottom: 0 !important;
+}
+
+.markdown-chat ul, .markdown-chat ol {
+  padding-left: 20px !important;
+  margin-bottom: 8px !important;
+}
